@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class SearchBar extends Component {
     };
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   onInputChange(e) {
@@ -21,8 +23,10 @@ class SearchBar extends Component {
     });
   }
 
-  handleFormSubmit(term) {
-    
+  handleFormSubmit(event) {
+    event.preventDefault();
+    this.props.fetchPhotos(this.state.inputValue);
+    this.setState({inputValue: ""})
   }
 
   render() {
@@ -30,6 +34,7 @@ class SearchBar extends Component {
     
     return (
       <div className='input-wrapper'>
+        <form onSubmit={this.handleFormSubmit} autoComplete="off">
           <input
             id="main-search-input"
             onChange={this.onInputChange}
@@ -37,7 +42,7 @@ class SearchBar extends Component {
             value={inputValue}
             spellCheck={false}
             />
-
+        </form>
         <span className='input-highlight'>
           { inputValue.replace(/ /g, "\u00a0") }
         </span>
@@ -63,9 +68,8 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'signin'
-})(
-  connect(null)(SearchBar))
+  form: 'search'
+})(connect(null, actions)(SearchBar))
 
 
 
