@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -52,24 +51,9 @@ class SearchBar extends Component {
 }
 
 
-function validate(values) {
-  // values --> Values in input fields as object at time of submit
-  const errors = {};
-
-  // then validate inputs
-  if (!values.search) {
-    errors.search = "Enter a Term!";
-  }
-  // if errors is empty, form is fine to submit
-  // if errors has any properties, redux form assumes invalid
-  return errors;
-}
 
 
-export default reduxForm({
-  validate,
-  form: 'search'
-})(connect(null, actions)(SearchBar))
+export default connect(null, actions)(SearchBar)
 
 
 
