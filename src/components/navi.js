@@ -27,10 +27,10 @@ class Navi extends Component {
 
   render() {
     return (
-      <Navbar dark expand="sm">
-        <NavbarBrand   href="/">JD-Photos</NavbarBrand>
+      <Navbar color="dark" dark expand="sm">
+        <NavbarBrand className="text-white" href="/">JD-Photos</NavbarBrand>
         <NavbarToggler onClick={this.toggle}/>
-        <Collapse isOpen={this.state.isOpen} navbar>
+        <Collapse className="text-white" isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
                 <NavLink href="#">About Us</NavLink>
