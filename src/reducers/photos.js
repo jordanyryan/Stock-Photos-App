@@ -1,10 +1,15 @@
 import {FETCH_PHOTOS} from '../actions/types';
+import _ from 'lodash';
 
-export default function(state = {}, action) {
+export default function(state = [], action) {
   switch(action.type) {
     case FETCH_PHOTOS:
-      return [...action.payload.data.results]
+      const updated = _.map(action.payload.data.results, photo => {
+        return {src: photo.urls.full, width: photo.width, height: photo.height}
+      })
+      return updated;
     default:
       return state;
   }
 }
+

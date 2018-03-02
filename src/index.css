@@ -16,6 +16,7 @@ body {
 #main-jumbo {
   background: url(img/background-img.jpg) no-repeat center;
   min-height: 350px;
+  overflow: hidden;
 }
 
 
@@ -78,25 +79,10 @@ body {
 }
 
 
-
-
 #main-search-input:focus + .input-highlight {
   border-top: 3px solid #26354C;
 }
 
-.row-div {
-  height: 250px;
-}
-
-.gallery-div {
-  height: 100%;
-  width: 100%;
-}
-
-.gallery-img {
-  height: 100%;
-  width: 100%;
-}
 
 
 

@@ -6,7 +6,7 @@ import SearchBar from './searchbar';
 class MainJumbo extends Component {
   render() {
     return (
-      <Jumbotron className="p-0"  id="main-jumbo" fluid>
+      <Jumbotron className="p-0 m-0"  id="main-jumbo" fluid>
         <Navi />
         <SearchBar />
       </Jumbotron>

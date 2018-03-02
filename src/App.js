@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import MainJumbo from './components/main-jumbo';
-import Gallery from './components/gallery';
+import PhotoGallery from './components/gallery';
+import {connect} from 'react-redux';
+import * as actions from './actions';
 import './App.css';
 
 class App extends Component {
+  componentWillMount() {
+    this.props.fetchPhotos('scenic');
+  } 
+
   render() {
     return (
       <div className="App">
         <MainJumbo />
-        <Gallery />
+        <PhotoGallery photos={this.props.photos}/>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(null, actions)(App);
