@@ -1,9 +1,9 @@
-import {TOGGLE_SIGNIN_MODAL} from '../actions/types';
+import {TOGGLE_MODAL} from '../actions/types';
 
-export default function(state={}, action) {
+export default function(state=false, action) {
   switch(action.type) {
     case TOGGLE_MODAL:
-      return {isOpen: !action.payload}
+      return !action.payload
     default:
       return state;
   }
