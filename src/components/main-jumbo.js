@@ -4,10 +4,6 @@ import Navi from './navi';
 import SearchBar from './searchbar';
 
 class MainJumbo extends Component {
-  constructor(props) {
-    super(props);
-
-  }
   render() {
     return (
       <Jumbotron className="p-0 m-0"  id="main-jumbo" fluid>
