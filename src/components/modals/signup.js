@@ -33,6 +33,10 @@ class SignUp extends Component {
     )
   }
 
+  pushHistory() {
+    console.log(this);
+  }
+
   renderAlert() {
     if (this.props.error) {
       return (
@@ -44,9 +48,7 @@ class SignUp extends Component {
   }
 
   handleFormSubmit({email, password}) {
-    this.props.signupUser({email, password}, () => {
-      this.props.history.push('/');
-    });
+    this.props.signupUser({email, password}, this.pushHistory);
   }
 
 
