@@ -53,9 +53,11 @@ class Navi extends Component {
             <NavLink href="#">Contact Us</NavLink>
           </NavItem>
           <NavItem>
+            <NavLink href="#">Profile</NavLink>
+          </NavItem>
+          <NavItem>
             <NavLink href="#" onClick={this.props.signoutUser}>Sign Out</NavLink>
           </NavItem>
-
         </Nav>
       )
     }

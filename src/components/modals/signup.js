@@ -39,8 +39,8 @@ class SignUp extends Component {
     }
   }
 
-  handleFormSubmit({email, password}) {
-    this.props.signupUser({email, password}, () => {
+  handleFormSubmit({email, password, firstName, lastName}) {
+    this.props.signupUser({email, password, firstName, lastName}, () => {
       this.props.toggleModal({isOpen: this.props.modal.isOpen, curModal: "signup"});
       this.props.history.push('/');
     });
@@ -57,6 +57,18 @@ class SignUp extends Component {
           <ModalHeader toggle={this.toggle.bind(this)}>Sign Up</ModalHeader>
           <ModalBody>
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+              <Field
+                label="First Name:"
+                name="firstName"
+                type="text"
+                component={this.renderField}
+              />
+              <Field
+                label="Last Name:"
+                name="lastName"
+                type="text"
+                component={this.renderField}
+              />
               <Field
                 label="Email:"
                 name="email"
@@ -99,6 +111,14 @@ function validate(values) {
   }
   if (!values.password) {
     errors.password = "Enter a password!";
+  }
+
+  if (!values.firstName) {
+    errors.firstName = "Enter a first name";
+  }
+
+  if (!values.lastName) {
+    errors.lastName = "Enter a last name";
   }
 
   if (values.password && !values.passwordcon ) {
