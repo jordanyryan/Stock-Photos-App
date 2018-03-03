@@ -71,7 +71,6 @@ class SignIn extends Component {
                 type="password"
               />
               {this.renderAlert()}
-              <button type="submit" className="btn btn-primary">Sign in</button>
             </form>            
           </ModalBody>
           <ModalFooter>
