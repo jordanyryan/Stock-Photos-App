@@ -5,13 +5,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import promise from 'redux-promise';
 
 
 import registerServiceWorker from './registerServiceWorker';
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(reduxThunk, promise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
