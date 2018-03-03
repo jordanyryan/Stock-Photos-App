@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import * as actions from  '../actions';
 import SignIn from './modals/signin';
 import SignUp from './modals/signup';
 
@@ -23,6 +25,43 @@ class Navi extends Component {
     };
   }
 
+  renderLinks() {
+    if (!this.props.authenticated) {
+      return (
+        <Nav className="ml-auto" navbar>
+          <NavItem>
+              <NavLink href="#">About Us</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#">Contact Us</NavLink>
+          </NavItem>
+          <NavItem>
+            <SignIn history={this.props.history}/>
+          </NavItem>
+          <NavItem>
+            <SignUp history={this.props.history}/>
+          </NavItem>
+        </Nav>
+      )
+    } else {
+      return (
+      <Nav className="ml-auto" navbar>
+          <NavItem>
+              <NavLink href="#">About Us</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#">Contact Us</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#" onClick={this.props.signoutUser}>Sign Out</NavLink>
+          </NavItem>
+
+        </Nav>
+      )
+    }
+  }
+
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -35,24 +74,15 @@ class Navi extends Component {
         <NavbarBrand className="text-white" href="/">JD-Photos</NavbarBrand>
         <NavbarToggler onClick={this.toggle}/>
         <Collapse className="text-white" isOpen={this.state.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-                <NavLink href="#">About Us</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#">Contact Us</NavLink>
-            </NavItem>
-            <NavItem>
-              <SignIn history={this.props.history}/>
-            </NavItem>
-            <NavItem>
-              <SignUp history={this.props.history}/>
-            </NavItem>
-          </Nav>
+          {this.renderLinks()}
         </Collapse>
       </Navbar>
     )
   }
 }
 
-export default Navi;
+function mapStateToProps({auth}) {
+  return {authenticated: auth.authenticated};
+}
+
+export default connect(mapStateToProps, actions)(Navi);

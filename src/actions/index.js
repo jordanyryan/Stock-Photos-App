@@ -50,7 +50,6 @@ export function signupUser({email, password}, callback) {
       callback()
     })
     .catch(({response}) => {
-      console.log(response)
       dispatch(authError(response.data.error))
     })
   }
