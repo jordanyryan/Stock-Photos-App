@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import SignIn from './modals/signin';
+import SignUp from './modals/signup';
+
 import {
   Collapse,
   Navbar,
@@ -43,7 +45,7 @@ class Navi extends Component {
               <SignIn />
             </NavItem>
             <NavItem>
-              <NavLink href="#">Sign Up</NavLink>
+              <SignUp />
             </NavItem>
           </Nav>
         </Collapse>
