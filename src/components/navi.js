@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from  '../actions';
 import SignIn from './modals/signin';
 import SignUp from './modals/signup';
+import {Link} from 'react-router-dom';
 
 
 import {
@@ -53,7 +54,7 @@ class Navi extends Component {
             <NavLink href="#">Contact Us</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Profile</NavLink>
+            <Link to="/profile" className="nav-link">Profile</Link>
           </NavItem>
           <NavItem>
             <NavLink href="#" onClick={this.props.signoutUser}>Sign Out</NavLink>
