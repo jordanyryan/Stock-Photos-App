@@ -12,7 +12,7 @@ class SignIn extends Component {
   }
 
   toggle() {
-    this.props.toggleModal(this.props.isOpen);
+    this.props.toggleModal({isOpen: this.props.modal.isOpen, curModal: "signin"});    
   }
 
   renderField(field) {
@@ -56,7 +56,7 @@ class SignIn extends Component {
     return (
       <div>
         <NavLink href="#" onClick={this.toggle}>Sign In</NavLink>
-        <Modal isOpen={this.props.isOpen} toggle={this.toggle} >
+        <Modal isOpen={this.props.modal.isOpen && this.props.modal.curModal === "signin"} toggle={this.toggle} >
           <ModalHeader toggle={this.toggle}>Sign In</ModalHeader>
           <ModalBody>
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
@@ -101,8 +101,8 @@ function validate(values) {
   return errors;
 }
 
-function mapStateToProps({auth, isOpen}) {
-  return {error: auth.error, isOpen};
+function mapStateToProps({auth, modal}) {
+  return {error: auth.error, modal: {isOpen: modal.isOpen, curModal: modal.curModal}};
 }
 
 export default reduxForm({

@@ -7,7 +7,7 @@ import authReducer from './auth_reducer';
 const rootReducer = combineReducers({
   form: formReducer,
   photos: photosReducer,
-  isOpen: modalsReducer,
+  modal: modalsReducer,
   auth: authReducer
 })
 

@@ -13,10 +13,10 @@ export function fetchPhotos(term) {
   };
 }
 
-export function toggleModal(isOpen) {
+export function toggleModal({isOpen, curModal}) {
   return {
     type: TOGGLE_MODAL,
-    payload: isOpen
+    payload: {isOpen, curModal}
   }
 }
 
