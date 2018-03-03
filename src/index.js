@@ -10,7 +10,7 @@ import reducers from './reducers';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import promise from 'redux-promise';
 import {AUTH_USER} from './actions/types';
-import ProfilePage from './components/profile';
+import ShowPage from './components/profile';
 
 
 import registerServiceWorker from './registerServiceWorker';
@@ -28,7 +28,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/profile/:userId" component={ProfilePage} />
+          <Route path="/users/:userId" component={ShowPage} />
           <Route exact path="/" component={App} />
         </Switch>
       </div>

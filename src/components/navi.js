@@ -54,7 +54,7 @@ class Navi extends Component {
             <NavLink href="#">Contact Us</NavLink>
           </NavItem>
           <NavItem>
-            <Link to="/profile" className="nav-link">Profile</Link>
+            <Link to="/users" className="nav-link">Profile</Link>
           </NavItem>
           <NavItem>
             <NavLink href="#" onClick={this.props.signoutUser}>Sign Out</NavLink>

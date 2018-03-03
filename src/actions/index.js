@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {FETCH_PHOTOS, TOGGLE_MODAL, AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE, GET_USER} from './types';
+import {FETCH_PHOTOS, TOGGLE_MODAL, AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE} from './types';
 
 const PHOTOS_URL = "https://api.unsplash.com/";
 const ROOT_URL = "http://localhost:3090";

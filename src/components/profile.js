@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Navi from './navi';
 const ROOT_URL = "http://localhost:3090";
 
-class ProfilePage extends Component {
+class ShowPage extends Component {
   constructor(props) {
     super(props);
 
@@ -23,9 +24,10 @@ class ProfilePage extends Component {
   }
 
   render() {
+    if (!this.state.firstName) return null;
     return (
-      <div className="container">
-          
+      <div className="jumbotron jumbotron-fluid" id="profile-jumbo">
+          <h1>{`${this.state.firstName} ${this.state.lastName}`}</h1>
       </div>
     )
   }
@@ -33,4 +35,4 @@ class ProfilePage extends Component {
 
 
 
-export default ProfilePage;
+export default ShowPage;
