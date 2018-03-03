@@ -1,1 +1,2 @@
 export const FETCH_PHOTOS = "FETCH_PHOTOS";
+export const TOGGLE_MODAL = "TOGGLE_MODAL";

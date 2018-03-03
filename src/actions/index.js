@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {FETCH_PHOTOS} from './types';
+import {FETCH_PHOTOS, TOGGLE_MODAL} from './types';
 
 const PHOTOS_URL = "https://api.unsplash.com/"
 
@@ -11,3 +11,11 @@ export function fetchPhotos(term) {
     payload: request
   };
 }
+
+export function toggleModal(isOpen) {
+  return {
+    type: TOGGLE_MODAL,
+    payload: isOpen
+  }
+}
+

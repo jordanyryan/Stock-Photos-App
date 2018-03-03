@@ -38,6 +38,12 @@ class Navi extends Component {
             <NavItem>
               <NavLink href="#">Contact Us</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="#">Sign In</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#">Sign Up</NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
