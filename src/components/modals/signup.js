@@ -5,11 +5,6 @@ import * as actions from '../../actions';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter,NavLink } from 'reactstrap';
 
 class SignUp extends Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-  }
 
   toggle() {
     this.props.toggleModal({isOpen: this.props.modal.isOpen, curModal: "signup"});
@@ -33,9 +28,6 @@ class SignUp extends Component {
     )
   }
 
-  pushHistory() {
-    console.log(this);
-  }
 
   renderAlert() {
     if (this.props.error) {
@@ -48,7 +40,10 @@ class SignUp extends Component {
   }
 
   handleFormSubmit({email, password}) {
-    this.props.signupUser({email, password}, this.pushHistory);
+    this.props.signupUser({email, password}, () => {
+      this.props.toggleModal({isOpen: this.props.modal.isOpen, curModal: "signup"});
+      this.props.history.push('/');
+    });
   }
 
 
@@ -57,9 +52,9 @@ class SignUp extends Component {
     const {handleSubmit} = this.props;
     return (
       <div>
-        <NavLink href="#" onClick={this.toggle}>Sign Up</NavLink>
-        <Modal isOpen={this.props.modal.isOpen && this.props.modal.curModal === "signup"} toggle={this.toggle} >
-          <ModalHeader toggle={this.toggle}>Sign Up</ModalHeader>
+        <NavLink href="#" onClick={this.toggle.bind(this)}>Sign Up</NavLink>
+        <Modal isOpen={this.props.modal.isOpen && this.props.modal.curModal === "signup"} toggle={this.toggle.bind(this)} >
+          <ModalHeader toggle={this.toggle.bind(this)}>Sign Up</ModalHeader>
           <ModalBody>
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
               <Field
@@ -86,7 +81,7 @@ class SignUp extends Component {
             </form>            
           </ModalBody>
           <ModalFooter>
-            <Button color="danger" onClick={this.toggle}>Cancel</Button>
+            <Button color="danger" onClick={this.toggle.bind(this)}>Cancel</Button>
           </ModalFooter>
         </Modal>
       </div>

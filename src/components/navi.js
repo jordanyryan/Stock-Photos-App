@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SignIn from './modals/signin';
 import SignUp from './modals/signup';
 
+
 import {
   Collapse,
   Navbar,
@@ -42,10 +43,10 @@ class Navi extends Component {
               <NavLink href="#">Contact Us</NavLink>
             </NavItem>
             <NavItem>
-              <SignIn />
+              <SignIn history={this.props.history}/>
             </NavItem>
             <NavItem>
-              <SignUp />
+              <SignUp history={this.props.history}/>
             </NavItem>
           </Nav>
         </Collapse>

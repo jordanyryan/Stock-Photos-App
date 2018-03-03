@@ -10,6 +10,8 @@ import reducers from './reducers';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import promise from 'redux-promise';
 import {AUTH_USER} from './actions/types';
+import requireUnauth from './components/auth/redirect_auth';
+import SignIn from './components/auth/signin';
 
 
 import registerServiceWorker from './registerServiceWorker';

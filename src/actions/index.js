@@ -49,9 +49,9 @@ export function signupUser({email, password}, callback) {
       localStorage.setItem('token', response.data.token);
       callback()
     })
-    .catch((response) => {
+    .catch(({response}) => {
       console.log(response)
-      dispatch(authError(response.error))
+      dispatch(authError(response.data.error))
     })
   }
 }

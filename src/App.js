@@ -11,17 +11,14 @@ class App extends Component {
   } 
 
   render() {
+    console.log(this.props)
     return (
       <div className="App">
-        <MainJumbo />
+        <MainJumbo history={this.props.history}/>
         <PhotoGallery photos={this.props.photos}/>
       </div>
     );
   }
 }
 
-function mapStateToProps({isOpen}) {
-  return {isOpen}
-}
-
-export default connect(mapStateToProps, actions)(App);
+export default connect(null, actions)(App);
