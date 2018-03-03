@@ -43,8 +43,10 @@ class SignIn extends Component {
     }
   }
 
-  handleFormSubmit(e) {
-    console.log(e)
+  handleFormSubmit({email, password}) {
+    this.props.signinUser({email, password}, () => {
+      this.props.history.push('/');
+    });
   }
 
 
@@ -71,10 +73,10 @@ class SignIn extends Component {
                 type="password"
               />
               {this.renderAlert()}
+              <Button type="submit">Submit</Button>
             </form>            
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Sign in</Button>{' '}
             <Button color="danger" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
