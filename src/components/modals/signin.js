@@ -69,7 +69,7 @@ class SignIn extends Component {
                 type="password"
               />
               {this.renderAlert()}
-              <Button type="submit">Sign In</Button>
+              <Button color="primary" type="submit">Sign In</Button>
             </form>            
           </ModalBody>
           <ModalFooter>

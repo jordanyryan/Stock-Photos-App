@@ -89,7 +89,7 @@ class SignUp extends Component {
                 type="password"
               />
               {this.renderAlert()}
-              <Button type="submit">Sign Up</Button>
+              <Button color="primary" type="submit">Sign Up</Button>
             </form>            
           </ModalBody>
           <ModalFooter>
