@@ -10,7 +10,7 @@ import reducers from './reducers';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import promise from 'redux-promise';
 import {AUTH_USER} from './actions/types';
-import ShowPage from './components/profile';
+import ShowPage from './components/pages/profile/show';
 
 
 import registerServiceWorker from './registerServiceWorker';
