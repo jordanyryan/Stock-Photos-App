@@ -95,9 +95,6 @@ body {
   background: rgba(105,131,158,0.9);
 }
 
-.img-gal {
-  opacity: 1 !important;
-}
 
 .img-gal img {
   min-width: 100%;
@@ -107,12 +104,10 @@ body {
 
 }
 
-
 .img-gal img {
   min-height: 100%;
+  position: relative;
 }
 
-
-
-
+/* Image Overlay */ 
 

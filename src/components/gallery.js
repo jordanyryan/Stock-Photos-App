@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import Photo from './photo';
 import {connect} from 'react-redux';
 
 class PhotoGallery extends Component {
   renderPhotos() {
     return this.props.photos.map((photo, i) => {
       return (
-        <div key={i} className="col-lg-4 col-md-6 col-sm-12 img-gal my-2">
-          <img className="img img-fluid" src={photo.src} alt={`galItem${i}`}/>
-        </div>
+        <Photo photo={photo} key={i} itemNum={i}/>
       )
     })
   }
@@ -16,7 +15,7 @@ class PhotoGallery extends Component {
     return(
       <div className="container gal-container">
         <div className="row-container">
-          <div className="row img-row mx-0 py-3 justify-content-between">
+          <div className="row img-row mx-0 py-3">
             {this.renderPhotos()}
           </div>
         </div>
