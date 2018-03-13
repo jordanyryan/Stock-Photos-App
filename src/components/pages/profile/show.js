@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Navi from '../../navi';
 const ROOT_URL = "http://localhost:3090";
 
 class ShowPage extends Component {
