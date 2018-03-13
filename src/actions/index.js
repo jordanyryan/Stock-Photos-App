@@ -1,12 +1,13 @@
+
 import axios from 'axios';
 import {FETCH_PHOTOS, TOGGLE_MODAL, AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE} from './types';
-
 const PHOTOS_URL = "https://pixabay.com/api/";
 const ROOT_URL = "http://localhost:3090";
-const API_KEY = "8342582-69eebfe6411b0b1577cd49299"
+const {REACT_APP_API_KEY} = process.env
+console.log(process.env)
 
 export function fetchPhotos(term) {
-  const request = axios.get(`${PHOTOS_URL}?key=${API_KEY}&q=${term}&image_type=photo&per_page=12`);
+  const request = axios.get(`${PHOTOS_URL}?key=${REACT_APP_API_KEY}&q=${term}&image_type=photo&per_page=12`);
 
   return {
     type: FETCH_PHOTOS,
