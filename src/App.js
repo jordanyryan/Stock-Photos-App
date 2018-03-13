@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactBreakpoints from 'react-breakpoints'
 import MainJumbo from './components/main-jumbo';
 import PhotoGallery from './components/gallery';
 import {connect} from 'react-redux';

@@ -83,8 +83,18 @@ body {
   border-top: 3px solid #26354C;
 }
 
+.img-gal img {
+  min-width: 100%;
+  min-height: 100%;
+}
 
+.img-row {
+  background-color: #263248;
+}
 
+.img-border {
+  border-radius: 6px;
+}
 
 
 

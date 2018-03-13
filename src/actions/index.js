@@ -1,11 +1,12 @@
 import axios from 'axios';
 import {FETCH_PHOTOS, TOGGLE_MODAL, AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE} from './types';
 
-const PHOTOS_URL = "https://api.unsplash.com/";
+const PHOTOS_URL = "https://pixabay.com/api/";
 const ROOT_URL = "http://localhost:3090";
+const API_KEY = "8342582-69eebfe6411b0b1577cd49299"
 
 export function fetchPhotos(term) {
-  const request = axios.get(`${PHOTOS_URL}search/photos?query=${term}&per_page=12&client_id=00625b03316ea0eb73689e6875cf45a301e46f8aaefe5bf68f1243c794955de6`);
+  const request = axios.get(`${PHOTOS_URL}?key=${API_KEY}&q=${term}&image_type=photo&per_page=12`);
 
   return {
     type: FETCH_PHOTOS,
