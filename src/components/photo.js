@@ -5,7 +5,8 @@ class Photo extends Component {
     super(props);
 
     this.state = {
-      hover: false
+      hover: false,
+      liked: false
     }
   }
 
@@ -21,8 +22,16 @@ class Photo extends Component {
     })
   }
 
+  onHeartClick() {
+    // Add to User's like Photos
+    this.setState({
+      liked: !this.state.liked
+    })
+  }
+
   render() {
-    const overlayClass = this.state.hover ? "overlay d-flex flex-column justify-content-between" : "overlay d-flex flex-column align-items hidden";
+    const overlayClass = this.state.hover ? "overlay d-flex flex-column justify-content-between" : "overlay hidden";
+    const liked = this.state.liked ? "text-danger" : "text-white";
     const {photo, itemNum} = this.props
     return(
 
@@ -32,7 +41,7 @@ class Photo extends Component {
           <div className={overlayClass}>
             <h2>Image Content</h2>
             <div className="container img-icon-list h-25 align-items">
-              <i className="fa fa-heart fa-3x text-white mx-4"></i>
+              <i onClick={this.onHeartClick.bind(this)} className={`fa fa-heart fa-3x ${liked} mx-4`}></i>
               <i className="fa fa-plus fa-3x text-white mx-4"></i>
               <i className="fa fa-comments fa-3x text-white mx-4"></i>
             </div>

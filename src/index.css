@@ -123,8 +123,7 @@ body {
   height: 100%;
   bottom: 0;
   border-radius: 6px;
-  background: rgba(0,0,0,0.8);
-  opacity: 0.8;
+  background: rgba(0,0,0,0.4);
   z-index: 2;
 }
 
@@ -137,7 +136,9 @@ body {
   position: relative;
 }
 
+
 .img-icon-list i:hover {
   cursor: pointer;
   transform: scale(1.5, 1.5);
+  transition-timing-function: ease;
 }

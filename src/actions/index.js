@@ -75,3 +75,7 @@ export function fetchMessage() {
       payload: request
     }
 }
+
+export function likePhoto(photoId) {
+  
+}
