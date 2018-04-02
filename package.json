@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
+    "jwt-decode": "^2.2.0",
     "lodash": "^4.17.5",
     "react": "^16.2.0",
     "react-breakpoints": "^2.0.3",
