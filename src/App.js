@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MainJumbo from './components/main-jumbo';
-import PhotoGallery from './components/gallery';
 import {connect} from 'react-redux';
 import * as actions from './actions';
+import MainJumbo from './components/main-jumbo';
+import PhotoGallery from './components/gallery';
 import './App.css';
 
 class App extends Component {

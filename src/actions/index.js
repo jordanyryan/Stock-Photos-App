@@ -83,10 +83,11 @@ export function fetchMessage() {
     }
 }
 
-export function likePhoto(photoId, callback) {
-  const userId = decode(localStorage.getItem('token'))
+export function likePhoto(photoId) {
+  const userId = decode(localStorage.getItem('token')).sub;
   console.log(photoId);
   const request = axios.post(`${ROOT_URL}/users/${userId}/likePhoto`, {photoId})
+  console.log(request);
   return {
     type: LIKE_PHOTO,
     payload: request
