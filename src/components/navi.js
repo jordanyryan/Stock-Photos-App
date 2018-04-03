@@ -25,6 +25,9 @@ class Navi extends Component {
       isOpen: false
     };
   }
+  componentWillMount() {
+    if (this.props.authenticated) this.props.fetchUser()
+  }
 
   renderLinks() {
     if (!this.props.authenticated) {
@@ -84,8 +87,8 @@ class Navi extends Component {
   }
 }
 
-function mapStateToProps({auth}) {
-  return {authenticated: auth.authenticated};
+function mapStateToProps({auth, user}) {
+  return {authenticated: auth.authenticated,user: user};
 }
 
 export default connect(mapStateToProps, actions)(Navi);

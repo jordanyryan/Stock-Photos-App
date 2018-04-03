@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import * as actions from '../actions';
 
 class Photo extends Component {
   constructor(props) {
@@ -22,11 +24,13 @@ class Photo extends Component {
     })
   }
 
-  onHeartClick() {
+  onHeartClick(url) {
     // Add to User's like Photos
+    this.props.likePhoto(url);
     this.setState({
       liked: !this.state.liked
     })
+
   }
 
   render() {
@@ -41,7 +45,7 @@ class Photo extends Component {
           <div className={overlayClass}>
             <h2>Image Content</h2>
             <div className="container img-icon-list h-25 align-items">
-              <i onClick={this.onHeartClick.bind(this)} className={`fa fa-heart fa-3x ${liked} mx-4`}></i>
+              <i onClick={(event) => this.onHeartClick(photo.src)} className={`fa fa-heart fa-3x ${liked} mx-4`}></i>
               <i className="fa fa-plus fa-3x text-white mx-4"></i>
               <i className="fa fa-comments fa-3x text-white mx-4"></i>
             </div>
@@ -53,4 +57,8 @@ class Photo extends Component {
   }
 }
 
-export default Photo;
+function mapStateToProps({user}) {
+  return {user};
+}
+
+export default connect(mapStateToProps, actions)(Photo);

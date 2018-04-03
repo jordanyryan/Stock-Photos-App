@@ -1,15 +1,12 @@
 import decode from 'jwt-decode';
 import axios from 'axios';
-import {FETCH_PHOTOS, TOGGLE_MODAL, AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE, FETCH_USER} from './types';
+import {FETCH_PHOTOS, TOGGLE_MODAL, AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE, FETCH_USER, LIKE_PHOTO} from './types';
 const PHOTOS_URL = "https://pixabay.com/api/";
 const ROOT_URL = "http://localhost:3090";
 const {REACT_APP_API_KEY} = process.env
-console.log(process.env)
 
 export function fetchPhotos(term) {
-  
   const request = axios.get(`${PHOTOS_URL}?key=${REACT_APP_API_KEY}&q=${term}&image_type=photo&per_page=12`);
-
   return {
     type: FETCH_PHOTOS,
     payload: request
@@ -18,12 +15,11 @@ export function fetchPhotos(term) {
 
 export function fetchUser() {
   const userId = decode(localStorage.getItem('token')).sub;
-  const request = axios.post(`${ROOT_URL}/users/${userId}`);
+  const request = axios.get(`${ROOT_URL}/users/${userId}`);
   return {
     type: FETCH_USER,
     payload: request
   }
-
 }
 
 export function toggleModal({isOpen, curModal}) {
@@ -87,6 +83,13 @@ export function fetchMessage() {
     }
 }
 
-export function likePhoto(photoId) {
+export function likePhoto(photoId, callback) {
+  const userId = decode(localStorage.getItem('token'))
+  console.log(photoId);
+  const request = axios.post(`${ROOT_URL}/users/${userId}/likePhoto`, {photoId})
+  return {
+    type: LIKE_PHOTO,
+    payload: request
+  }
   
 }
