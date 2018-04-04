@@ -12,9 +12,11 @@ class PhotoGallery extends Component {
   }
   
   render() {
+    const header = this.props.header ? <h3 className="text-center">{this.props.header}</h3> : "";
     return(
       <div className="container gal-container">
         <div className="row-container">
+        {header}
           <div className="row img-row mx-0 py-3">
             {this.renderPhotos()}
           </div>

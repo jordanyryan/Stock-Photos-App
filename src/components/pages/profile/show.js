@@ -8,7 +8,7 @@ import Navi from '../../navi';
 class ShowPage extends Component {
   componentWillMount() {
     if (!this.props.user._id) {
-      if(localStorage.getItem('token')) this.props.fetchUser();
+      localStorage.getItem('token') ? this.props.fetchUser() : this.props.history.push('/');
     }
   }
 
@@ -21,9 +21,9 @@ class ShowPage extends Component {
         <div className="jumbotron jumbotron-fluid text-center bg-dark m-0 p-0" id="profile-jumbo">
         <Navi textColor={"dark"} navColor={"light"}/>
           <h1>Welcome, {`${firstName} ${lastName}`}</h1>
-          <div>Liked Photos</div>
+          <i className="fa fa-image fa-5x  text-white"></i>
         </div>
-        <PhotoGallery photos={this.props.user.likedPhotos} />
+        <PhotoGallery photos={this.props.user.likedPhotos} header={"Liked Photos"}/>
       </div>
     )
   }
