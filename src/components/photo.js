@@ -41,11 +41,11 @@ class Photo extends Component {
 
       <div  className="col-lg-4 col-md-6 col-sm-12 img-gal my-2">
         <div onMouseEnter={this.onMouseEnter.bind(this)} onMouseLeave={this.onMouseLeave.bind(this)} className="container-fluid img-gal-container p-0">
-          <img className="img img-fluid" src={photo.src} alt={`galItem${itemNum}`}/>
+          <img className="img img-fluid" src={photo.url} alt={`galItem${itemNum}`}/>
           <div className={overlayClass}>
-            <h2>Image Content</h2>
-            <div className="container img-icon-list h-25 align-items">
-              <i onClick={(event) => this.onHeartClick(photo.src)} className={`fa fa-heart fa-3x ${liked} mx-4`}></i>
+            <h2 className="text-center">Image Content</h2>
+            <div className="container img-icon-list h-25 text-center">
+              <i onClick={(event) => this.onHeartClick(photo.url)} className={`fa fa-heart fa-3x ${liked} mx-4`}></i>
               <i className="fa fa-plus fa-3x text-white mx-4"></i>
               <i className="fa fa-comments fa-3x text-white mx-4"></i>
             </div>

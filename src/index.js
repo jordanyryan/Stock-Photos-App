@@ -12,6 +12,7 @@ import promise from 'redux-promise';
 import {AUTH_USER, FETCH_USER} from './actions/types';
 import redirectAuth from './components/auth/redirect_auth';
 import ShowPage from './components/pages/profile/show';
+import Navi from './components/navi';
 
 
 import registerServiceWorker from './registerServiceWorker';

@@ -76,10 +76,10 @@ class Navi extends Component {
 
   render() {
     return (
-      <Navbar color="dark" dark expand="sm">
-        <NavbarBrand className="text-white" href="/">JD-Photos</NavbarBrand>
+      <Navbar color={this.props.navColor} dark expand="sm">
+        <NavbarBrand className={this.props.textColor} href="/">JD-Photos</NavbarBrand>
         <NavbarToggler onClick={this.toggle}/>
-        <Collapse className="text-white" isOpen={this.state.isOpen} navbar>
+        <Collapse className={this.props.textColor} isOpen={this.state.isOpen} navbar>
           {this.renderLinks()}
         </Collapse>
       </Navbar>

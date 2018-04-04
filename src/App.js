@@ -12,6 +12,7 @@ class App extends Component {
   } 
 
   render() {
+    console.log(this.props.photos)
     return (
       <div className="App">
         <MainJumbo history={this.props.history}/>
@@ -21,4 +22,8 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+function mapStateToProps({photos}) {
+  return {photos};
+}
+
+export default connect(mapStateToProps, actions)(App);

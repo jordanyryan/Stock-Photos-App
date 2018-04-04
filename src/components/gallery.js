@@ -24,8 +24,5 @@ class PhotoGallery extends Component {
   }
 }
 
-function mapStateToProps({photos}) {
-  return {photos};
-}
 
-export default connect(mapStateToProps)(PhotoGallery);
+export default PhotoGallery;
