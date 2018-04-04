@@ -9,7 +9,7 @@ import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import promise from 'redux-promise';
-import {AUTH_USER} from './actions/types';
+import {AUTH_USER, FETCH_USER} from './actions/types';
 import ShowPage from './components/pages/profile/show';
 
 
@@ -23,13 +23,14 @@ if(token) {
   store.dispatch({type: AUTH_USER});
 }
 
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <div>
         <Switch>
+          <Route exact path="/" component={App}/>
           <Route path="/users/:userId" component={ShowPage} />
-          <Route exact path="/" component={App} />
         </Switch>
       </div>
     </BrowserRouter>

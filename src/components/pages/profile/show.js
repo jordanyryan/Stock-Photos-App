@@ -1,22 +1,30 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import {connect} from 'react-redux';
+import * as actions from '../../../actions';
+
 
 class ShowPage extends Component {
+  componentWillMount() {
+    if (!this.props.user._id) {
+      this.props.fetchUser();
+    }
+  }
+
 
   render() {
-    if (!this.state.firstName) return null;
+    if (!this.props.user._id) return null;
+    const {firstName, lastName} = this.props.user;
     return (
       <div className="jumbotron jumbotron-fluid text-center" id="profile-jumbo">
-          <h1>{`${this.state.firstName} ${this.state.lastName}`}</h1>
-          <div>Followers</div>
-          <div>Following</div>
-          <div>Collections</div>
+          <h1>Welcome, {`${firstName} ${lastName}`}</h1>
           <div>Liked Photos</div>
       </div>
     )
   }
 }
 
+function mapStateToProps({user}) {
+  return {user};
+}
 
-
-export default ShowPage;
+export default connect(mapStateToProps, actions)(ShowPage);

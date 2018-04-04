@@ -57,7 +57,7 @@ class Navi extends Component {
             <NavLink href="#">Contact Us</NavLink>
           </NavItem>
           <NavItem>
-            <Link to="/users" className="nav-link">Profile</Link>
+            <Link to={`/users/${this.props.user._id}`} className="nav-link">Profile</Link>
           </NavItem>
           <NavItem>
             <NavLink href="#" onClick={this.props.signoutUser}>Sign Out</NavLink>
@@ -75,6 +75,7 @@ class Navi extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <Navbar color="dark" dark expand="sm">
         <NavbarBrand className="text-white" href="/">JD-Photos</NavbarBrand>
@@ -88,7 +89,7 @@ class Navi extends Component {
 }
 
 function mapStateToProps({auth, user}) {
-  return {authenticated: auth.authenticated,user: user};
+  return {authenticated: auth.authenticated, user};
 }
 
 export default connect(mapStateToProps, actions)(Navi);

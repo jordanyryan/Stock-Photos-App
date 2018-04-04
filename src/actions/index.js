@@ -14,8 +14,10 @@ export function fetchPhotos(term) {
 }
 
 export function fetchUser() {
+  console.log("hey");
   const userId = decode(localStorage.getItem('token')).sub;
-  const request = axios.get(`${ROOT_URL}/users/${userId}`);
+  const request = axios.get(`${ROOT_URL}/users/${userId}`)
+  // console.log(userId, request)
   return {
     type: FETCH_USER,
     payload: request
@@ -30,7 +32,6 @@ export function toggleModal({isOpen, curModal}) {
 }
 
 export function signinUser({email, password}, callback) {
-
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signin`, {email, password})
     .then( (response) => {
@@ -85,9 +86,7 @@ export function fetchMessage() {
 
 export function likePhoto(photoId) {
   const userId = decode(localStorage.getItem('token')).sub;
-  console.log(photoId);
   const request = axios.post(`${ROOT_URL}/users/${userId}/likePhoto`, {photoId})
-  console.log(request);
   return {
     type: LIKE_PHOTO,
     payload: request
