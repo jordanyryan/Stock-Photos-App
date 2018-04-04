@@ -6,18 +6,19 @@ import * as actions from '../../../actions';
 class ShowPage extends Component {
   componentWillMount() {
     if (!this.props.user._id) {
-      this.props.fetchUser();
+      if(localStorage.getItem('token')) this.props.fetchUser();
     }
   }
-
 
   render() {
     if (!this.props.user._id) return null;
     const {firstName, lastName} = this.props.user;
+    console.log(this.props.user);
     return (
       <div className="jumbotron jumbotron-fluid text-center" id="profile-jumbo">
           <h1>Welcome, {`${firstName} ${lastName}`}</h1>
           <div>Liked Photos</div>
+
       </div>
     )
   }

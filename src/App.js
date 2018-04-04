@@ -8,7 +8,7 @@ import './App.css';
 class App extends Component {
   componentWillMount() {
     this.props.fetchPhotos('scenic')
-    this.props.fetchUser();
+    if(localStorage.getItem('token')) this.props.fetchUser();
   } 
 
   render() {

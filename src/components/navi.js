@@ -75,7 +75,6 @@ class Navi extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <Navbar color="dark" dark expand="sm">
         <NavbarBrand className="text-white" href="/">JD-Photos</NavbarBrand>

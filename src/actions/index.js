@@ -14,10 +14,8 @@ export function fetchPhotos(term) {
 }
 
 export function fetchUser() {
-  console.log("hey");
   const userId = decode(localStorage.getItem('token')).sub;
   const request = axios.get(`${ROOT_URL}/users/${userId}`)
-  // console.log(userId, request)
   return {
     type: FETCH_USER,
     payload: request
