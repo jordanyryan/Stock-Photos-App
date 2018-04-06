@@ -7,12 +7,11 @@ import './App.css';
 
 class App extends Component {
   componentWillMount() {
-    this.props.fetchPhotos('scenic')
+    this.props.fetchPhotos('dogs')
     if(localStorage.getItem('token')) this.props.fetchUser();
   } 
 
   render() {
-    console.log(this.props.photos)
     return (
       <div className="App">
         <MainJumbo history={this.props.history}/>

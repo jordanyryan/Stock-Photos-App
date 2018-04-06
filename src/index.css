@@ -42,8 +42,8 @@ body {
 
 .input-wrapper {
   position: relative;
-  max-width: 60%;
-  margin: 50px auto;
+  max-width: 55%;
+  margin: 10%;
 }
 
 .input-highlight {
@@ -62,7 +62,7 @@ body {
 
 
 #main-search-input {
-  margin-top: 10%;
+  margin-top: 5%;
   height: 40px;
   width: 100%;
   min-width: 60%;
@@ -89,14 +89,13 @@ body {
 
 /* Image gallery Styles */
 .gal-container {
-  background: url('img/background-gal-img.jpg');
+  background-color: #131517;
   min-width: 100%;
   padding: 0;
 }
 
 .row-container {
   min-width: 100%;
-  background: rgba(105,131,158,0.9);
 }
 
 .gal-container img {
