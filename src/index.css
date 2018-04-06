@@ -19,7 +19,7 @@ body {
 
 #main-jumbo {
   background: url(img/background-img.jpg) no-repeat center;
-  min-height: 350px;
+  min-height: 70vh;
   overflow: hidden;
 }
 
@@ -42,8 +42,8 @@ body {
 
 .input-wrapper {
   position: relative;
-  max-width: 55%;
-  margin: 10%;
+  max-width: 60%;
+  margin: 10% 0% 10% 10%;
 }
 
 .input-highlight {
@@ -58,6 +58,10 @@ body {
   color: transparent;
   font-family: Roboto Slab, sans-serif;
   overflow: hidden;
+}
+
+.indie {
+  font-family: 'Indie Flower', cursive;
 }
 
 
@@ -92,6 +96,7 @@ body {
   background-color: #131517;
   min-width: 100%;
   padding: 0;
+  min-height: 75vh;
 }
 
 .row-container {

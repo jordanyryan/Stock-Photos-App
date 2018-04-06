@@ -33,7 +33,7 @@ class SearchBar extends Component {
     
     return (
       <div className='input-wrapper'>
-        <h2 className="text-white text-left">Best Free Stock Photos</h2>
+        <h2 className="text-white text-left display-4 indie">Free Stock Photos</h2>
         <form onSubmit={this.handleFormSubmit} autoComplete="off">
           <input
             id="main-search-input"
