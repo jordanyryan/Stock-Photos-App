@@ -44,9 +44,9 @@ export function signinUser({email, password}, callback) {
 }
 
 
-export function signoutUser() {
-  localStorage.removeItem('token');
-  return {type: UNAUTH_USER}
+export function signoutUser(callback) {
+    localStorage.removeItem('token');
+    return {type: UNAUTH_USER};
 }
 
 export function signupUser({email, password, firstName, lastName}, callback) {

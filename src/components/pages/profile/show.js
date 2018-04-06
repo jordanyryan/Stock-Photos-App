@@ -3,6 +3,7 @@ import PhotoGallery from '../../gallery';
 import {connect} from 'react-redux';
 import * as actions from '../../../actions';
 import Navi from '../../navi';
+import avatar from '../../../img/avatar_placeholder.png';
 
 
 class ShowPage extends Component {
@@ -20,7 +21,7 @@ class ShowPage extends Component {
         <div className="jumbotron jumbotron-fluid text-center bg-dark m-0 p-0" id="profile-jumbo">
         <Navi textColor={"dark"} navColor={"light"}/>
           <h1>{`${firstName} ${lastName}`}</h1>
-          <i className="fa fa-image fa-5x  text-white"></i>
+          <img className="avatar mb-3" src={avatar} alt="blank_avatar"/>
         </div>
         <PhotoGallery photos={this.props.user.likedPhotos} header={"Liked Photos"}/>
       </div>

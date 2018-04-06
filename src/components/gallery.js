@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Photo from './photo';
-import {connect} from 'react-redux';
 
 class PhotoGallery extends Component {
   renderPhotos() {
@@ -12,7 +11,7 @@ class PhotoGallery extends Component {
   }
   
   render() {
-    const header = this.props.header ? <h3 className="text-center">{this.props.header}</h3> : "";
+    const header = this.props.header ? <h3 className="text-center text-white">{this.props.header}</h3> : "";
     return(
       <div className="container gal-container">
         <div className="row-container">

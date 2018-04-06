@@ -25,19 +25,18 @@ class Navi extends Component {
       isOpen: false
     };
   }
+
   componentWillMount() {
     if (this.props.authenticated) this.props.fetchUser()
   }
+
 
   renderLinks() {
     if (!this.props.authenticated) {
       return (
         <Nav className="ml-auto" navbar>
           <NavItem>
-              <NavLink href="#">About Us</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#">Contact Us</NavLink>
+              <Link to={"/"} className="nav-link">Home</Link>
           </NavItem>
           <NavItem>
             <SignIn history={this.props.history}/>
@@ -51,10 +50,7 @@ class Navi extends Component {
       return (
       <Nav className="ml-auto" navbar>
           <NavItem>
-              <NavLink href="#">About Us</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#">Contact Us</NavLink>
+              <Link to={"/"} className="nav-link">Home</Link>
           </NavItem>
           <NavItem>
             <Link to={`/users/${this.props.user._id}`} className="nav-link">Profile</Link>
