@@ -4,7 +4,7 @@ import * as actions from  '../actions';
 import SignIn from './modals/signin';
 import SignUp from './modals/signup';
 import {Link} from 'react-router-dom';
-  
+   
 
 import {
   Collapse,
@@ -26,15 +26,17 @@ class Navi extends Component {
     };
   }
 
+  componentWillMount() {
+    if (this.props.authenticated) this.props.fetchUser()
+  }
+
+
   renderLinks() {
     if (!this.props.authenticated) {
       return (
         <Nav className="ml-auto" navbar>
           <NavItem>
-              <NavLink href="#">About Us</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#">Contact Us</NavLink>
+              <Link to={"/"} className="nav-link">Home</Link>
           </NavItem>
           <NavItem>
             <SignIn history={this.props.history}/>
@@ -48,13 +50,10 @@ class Navi extends Component {
       return (
       <Nav className="ml-auto" navbar>
           <NavItem>
-              <NavLink href="#">About Us</NavLink>
+              <Link to={"/"} className="nav-link">Home</Link>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Contact Us</NavLink>
-          </NavItem>
-          <NavItem>
-            <Link to="/users" className="nav-link">Profile</Link>
+            <Link to={`/users/${this.props.user._id}`} className="nav-link">Profile</Link>
           </NavItem>
           <NavItem>
             <NavLink href="#" onClick={this.props.signoutUser}>Sign Out</NavLink>
@@ -73,10 +72,10 @@ class Navi extends Component {
 
   render() {
     return (
-      <Navbar color="dark" dark expand="sm">
-        <NavbarBrand className="text-white" href="/">JD-Photos</NavbarBrand>
+      <Navbar color={this.props.navColor} dark expand="sm">
+        <NavbarBrand className={this.props.textColor} href="/">JD-Photos</NavbarBrand>
         <NavbarToggler onClick={this.toggle}/>
-        <Collapse className="text-white" isOpen={this.state.isOpen} navbar>
+        <Collapse className={this.props.textColor} isOpen={this.state.isOpen} navbar>
           {this.renderLinks()}
         </Collapse>
       </Navbar>
@@ -84,8 +83,8 @@ class Navi extends Component {
   }
 }
 
-function mapStateToProps({auth}) {
-  return {authenticated: auth.authenticated};
+function mapStateToProps({auth, user}) {
+  return {authenticated: auth.authenticated, user};
 }
 
 export default connect(mapStateToProps, actions)(Navi);

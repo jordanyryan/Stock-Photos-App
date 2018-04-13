@@ -1,42 +1,48 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-const ROOT_URL = "http://localhost:3090";
+import PhotoGallery from '../../gallery';
+import {connect} from 'react-redux';
+import * as actions from '../../../actions';
+import Navi from '../../navi';
+import avatar from '../../../img/avatar_placeholder.png';
+
 
 class ShowPage extends Component {
-  constructor(props) {
-    super(props);
+  componentWillMount() {  
+    this.authenticateUser();
+  }
 
-    this.state = {
-      userId: this.props.match.params.userId,
-      firstName: "",
-      lastName: "",
-      likedPhotos: []
-    }
+  componentDidUpdate() {
+    this.authenticateUser();
   }
-  componentWillMount() {
-    axios.get(`${ROOT_URL}/users/${this.props.match.params.userId}`)
-    .then(({data}) => {
-      this.setState({firstName: data.firstName, lastName: data.lastName, likedPhotos: data.likedPhotos});
-    })
-    .catch(err => {
-      console.log(err);
-    })
+
+  authenticateUser() {
+    this.props.authenticated ? this.props.fetchUser() : this.props.history.push('/');
   }
+
 
   render() {
-    if (!this.state.firstName) return null;
+    if (!this.props.user._id) return null;
+    const {firstName, lastName, likedPhotos} = this.props.user;
     return (
-      <div className="jumbotron jumbotron-fluid text-center" id="profile-jumbo">
-          <h1>{`${this.state.firstName} ${this.state.lastName}`}</h1>
-          <div>Followers</div>
-          <div>Following</div>
-          <div>Collections</div>
-          <div>Liked Photos</div>
+      <div className="container-fluid p-0 m-0">
+        <div className="jumbotron jumbotron-fluid text-center bg-dark m-0 p-0" id="profile-jumbo">
+        <Navi textColor={"dark"} navColor={"light"}/>
+          <h1>{`${firstName} ${lastName}`}</h1>
+          <img className="avatar mb-3" src={avatar} alt="blank_avatar"/>
+          <div className="container">
+            <div className="row">
+              <p>Photos Liked: {likedPhotos.length}</p>
+            </div>
+          </div>
+        </div>
+        <PhotoGallery photos={this.props.user.likedPhotos} header={"Liked Photos"}/>
       </div>
     )
   }
 }
 
+function mapStateToProps({auth, user}) {
+  return {authenticated: auth.authenticated, user};
+}
 
-
-export default ShowPage;
+export default connect(mapStateToProps, actions)(ShowPage);

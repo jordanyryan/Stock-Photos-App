@@ -19,7 +19,7 @@ body {
 
 #main-jumbo {
   background: url(img/background-img.jpg) no-repeat center;
-  min-height: 350px;
+  min-height: 70vh;
   overflow: hidden;
 }
 
@@ -43,7 +43,7 @@ body {
 .input-wrapper {
   position: relative;
   max-width: 60%;
-  margin: 50px auto;
+  margin: 10% 0% 10% 10%;
 }
 
 .input-highlight {
@@ -60,9 +60,13 @@ body {
   overflow: hidden;
 }
 
+.indie {
+  font-family: 'Indie Flower', cursive;
+}
+
 
 #main-search-input {
-  margin-top: 10%;
+  margin-top: 5%;
   height: 40px;
   width: 100%;
   min-width: 60%;
@@ -89,14 +93,14 @@ body {
 
 /* Image gallery Styles */
 .gal-container {
-  background: url('img/background-gal-img.jpg');
+  background-color: #131517;
   min-width: 100%;
   padding: 0;
+  min-height: 75vh;
 }
 
 .row-container {
   min-width: 100%;
-  background: rgba(105,131,158,0.9);
 }
 
 .gal-container img {
@@ -141,4 +145,11 @@ body {
   cursor: pointer;
   transform: scale(1.5, 1.5);
   transition-timing-function: ease;
+}
+
+/* Avatar CSS */
+.avatar {
+  width: 25vh;
+  height: 25vh;
+  border-radius: 100%;
 }

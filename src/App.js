@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import MainJumbo from './components/main-jumbo';
-import PhotoGallery from './components/gallery';
 import {connect} from 'react-redux';
 import * as actions from './actions';
+import MainJumbo from './components/main-jumbo';
+import PhotoGallery from './components/gallery';
 import './App.css';
 
 class App extends Component {
   componentWillMount() {
-    this.props.fetchPhotos('scenic');
+    this.props.fetchPhotos('dogs')
+    if(localStorage.getItem('token')) this.props.fetchUser();
   } 
 
   render() {
@@ -20,4 +21,8 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+function mapStateToProps({photos}) {
+  return {photos};
+}
+
+export default connect(mapStateToProps, actions)(App);

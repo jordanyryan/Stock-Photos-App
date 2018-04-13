@@ -8,7 +8,7 @@ class MainJumbo extends Component {
   render() {
     return (
       <Jumbotron className="p-0 m-0"  id="main-jumbo" fluid>
-        <Navi history={this.props.history}/>
+        <Navi history={this.props.history} textColor={"text-white"} navColor={"dark"}/>
         <SearchBar />
       </Jumbotron>
     )
