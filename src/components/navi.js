@@ -4,7 +4,7 @@ import * as actions from  '../actions';
 import SignIn from './modals/signin';
 import SignUp from './modals/signup';
 import {Link} from 'react-router-dom';
- 
+  
 
 import {
   Collapse,
